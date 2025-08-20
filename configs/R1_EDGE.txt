@@ -1,0 +1,25 @@
+!
+hostname R1_EDGE
+!
+interface GigabitEthernet0/0
+ ip address 192.168.1.2 255.255.255.252
+ no shutdown
+!
+interface GigabitEthernet0/1
+ ip address 192.168.2.1 255.255.255.252
+ no shutdown
+!
+hostname R1-EDGE
+!
+access-list 50 deny 203.0.113.0 0.0.0.255
+access-list 50 permit any
+!
+router bgp 65001
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 192.168.1.1 remote-as 65012
+ network 192.168.2.0 mask 255.255.255.252
+ network 192.168.3.0 mask 255.255.255.0
+!
+!
+end
