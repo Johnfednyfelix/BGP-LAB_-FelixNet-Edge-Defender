@@ -77,7 +77,7 @@ Now both the static routes and BGP network entries align perfectly.
 
 ## 🧠 Key Takeaways
 
-- `network` in BGP ≠ route injection — it **requires an exact RIB match**
+- `network` in BGP ≠ route injection, it **requires an exact RIB match**
 - `ip route` must follow subnetting logic strictly (host bits = 0)
 - Use `Null0` routes to force injection when needed
 - Always validate with `show ip route` before adding BGP `network` entries
